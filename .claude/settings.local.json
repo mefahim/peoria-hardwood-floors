@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm rebuild *)",
+      "Bash(node -e \"const Database = require\\('Node.js built-in SQLite'\\); const db = new Database\\(':memory:'\\); db.exec\\('CREATE TABLE t\\(a\\)'\\); db.prepare\\('INSERT INTO t VALUES \\(1\\)'\\).run\\(\\); console.log\\(db.prepare\\('SELECT * FROM t'\\).all\\(\\)\\);\")",
+      "Bash(grep -n 'flex flex-wrap items-center gap-3\\\\|Talk with Peoria Hardwood Floors\\\\|</main>$' app/visualizer/page.tsx)",
+      "Bash(openssl rand *)",
+      "Bash(echo \"VISITOR_COOKIE_SECRET=$\\(openssl rand -hex 32\\)\")",
+      "Bash(npx tsc *)",
+      "Bash(pnpm run *)",
+      "Bash(curl -s -i http://localhost:59935/api/visualizer/quota)",
+      "Bash(node /private/tmp/claude-502/-Users-rakibhasan-Downloads-peoriahardwoodfloors/6fb2fafb-e237-4815-983a-44b41eec5e10/scratchpad/concurrency-test.mjs)",
+      "Bash(node -e ' *)",
+      "Bash(curl -s -b /tmp/admin-cookie.txt http://localhost:59935/admin/leads -o /tmp/leads.html -w \"status: %{http_code}\\\\n\")",
+      "Read(//tmp/**)",
+      "Bash(curl -s -b /tmp/admin-cookie.txt http://localhost:59935/admin/generations -o /tmp/generations.html -w \"status: %{http_code}\\\\n\")",
+      "Bash(node /private/tmp/claude-502/-Users-rakibhasan-Downloads-peoriahardwoodfloors/6fb2fafb-e237-4815-983a-44b41eec5e10/scratchpad/lead-flow-test.mjs)",
+      "Bash(curl -s -b /tmp/admin-cookie.txt http://localhost:59935/admin/leads -o /tmp/leads2.html -w \"status: %{http_code}\\\\n\")",
+      "Bash(curl -s -b /tmp/admin-cookie.txt http://localhost:59935/admin/leads/__TRACKED_VAR__ -o /tmp/lead-detail.html -w 'status: %{http_code}\\\\n')",
+      "Bash(curl -s -b /tmp/admin-cookie.txt \"http://localhost:59935/api/admin/generation-image?id=viz_cf5ae8ce-5a0b-4392-a720-c484aac01489&kind=output\" -o /tmp/out.png -w \"status: %{http_code}, content-type: %{content_type}\\\\n\")",
+      "Bash(curl -s \"http://localhost:59935/api/admin/generation-image?id=viz_cf5ae8ce-5a0b-4392-a720-c484aac01489&kind=output\" -o /dev/null -w \"status: %{http_code}\\\\n\")",
+      "Bash(curl -s -b /tmp/admin-cookie.txt \"http://localhost:59935/api/admin/generation-image?id=viz_cf5ae8ce-5a0b-4392-a720-c484aac01489&kind=input\" -o /tmp/in.png -w \"status: %{http_code}, content-type: %{content_type}\\\\n\")",
+      "Bash(curl -s -b /tmp/admin-cookie.txt \"http://localhost:59935/api/admin/generation-image?id=viz_cf5ae8ce-5a0b-4392-a720-c484aac01489&kind=output\" -o /tmp/out2.png -w \"status: %{http_code}, content-type: %{content_type}\\\\n\")",
+      "Bash(lsof -i :3000 -sTCP:LISTEN)",
+      "Bash(grep -o \"card-content.\\\\{0,250\\\\}\" /tmp/leadsfull.html)",
+      "Bash(grep -o \"py-12.\\\\{0,200\\\\}\" /tmp/leadsfull.html)",
+      "Bash(grep -o \"unlocks a bonus.\\\\{0,50\\\\}\" /tmp/leadsfull.html)",
+      "Bash(python3 -c ' *)",
+      "Bash(rm -f /Users/rakibhasan/Downloads/peoriahardwoodfloors/tmp_* 2>/dev/null; cd /Users/rakibhasan/Downloads/peoriahardwoodfloors && pnpm run test:unit 2>&1 | tail -8)",
+      "Bash(curl -s http://localhost:62948/ -o /tmp/home.html -w \"status: %{http_code}\\\\n\")",
+      "Bash(rsync -a --exclude=node_modules --exclude=.next --exclude=.git --exclude=data --exclude=public/generated --exclude=.env.local --exclude=.env --exclude=*.zip --exclude=poc --exclude=test-results --exclude=.DS_Store ./ /tmp/deploy-staging/)"
+    ]
+  }
+}

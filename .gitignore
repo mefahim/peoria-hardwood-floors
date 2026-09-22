@@ -1,0 +1,54 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Cloudflare Workers AI POC (poc/) — belt-and-suspenders on top of the
+# blanket ".env*" rule above; secrets must never be committed.
+poc/.env
+poc/.env.*
+!poc/.env.example
+
+# Hugging Face Inference Providers POC (poc/huggingface/) — same pattern.
+poc/huggingface/.env
+poc/huggingface/.env.*
+!poc/huggingface/.env.example
+
+# Gemini API POC (poc/gemini/) — same pattern.
+poc/gemini/.env
+poc/gemini/.env.*
+!poc/gemini/.env.example
+
+# fal.ai API POC (poc/fal/) — same pattern.
+poc/fal/.env
+poc/fal/.env.*
+!poc/fal/.env.example
+
+# Admin dashboard runtime data (lib/visualizer/admin-store.ts) — the active
+# provider config and the generation log are runtime state, not source, and
+# generated visualization images may contain a customer's uploaded room photo.
+/data/
+/public/generated/

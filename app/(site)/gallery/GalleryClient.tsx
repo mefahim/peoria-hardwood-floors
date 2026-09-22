@@ -1,0 +1,8 @@
+"use client"
+import { useState } from "react"
+import Image from "next/image"
+import type { Metadata } from "next"
+import { PageHero } from "@/components/page-hero"
+import { galleryImages } from "@/lib/site"
+
+export default function GalleryPage() { const [filter,setFilter]=useState("All"); const filters=["All",...Array.from(new Set(galleryImages.map((image)=>image.service)))]; const visible=filter === "All" ? galleryImages : galleryImages.filter((image)=>image.service===filter); return <><PageHero eyebrow="Selected work" title="Floors with a story to tell." description="A look at installations, refinishing, stains, and detail work across Peoria and Central Illinois." image="/images/new-images/IMG_0660.JPG" imageAlt="Hardwood flooring project" breadcrumbs={[{label:"Home",href:"/"},{label:"Gallery",href:"/gallery"}]} /><main className="container mx-auto px-6 py-20 lg:py-28"><div className="flex flex-wrap gap-2">{filters.map((item)=><button key={item} onClick={()=>setFilter(item)} className={`px-5 py-3 text-sm ${filter===item?"bg-foreground text-background":"bg-secondary hover:bg-muted"}`}>{item}</button>)}</div><div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{visible.map((image,index)=><figure key={image.src} className={`group relative overflow-hidden ${index===0?"sm:col-span-2 sm:row-span-2":""}`}><div className={`relative ${index===0?"aspect-square":"aspect-[4/3]"}`}><Image src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 33vw, 100vw" className="object-cover transition-transform duration-500 group-hover:scale-105" /></div><figcaption className="absolute inset-x-0 bottom-0 bg-foreground/80 p-4 text-sm text-background">{image.service} · {image.alt}</figcaption></figure>)}</div></main></> }
