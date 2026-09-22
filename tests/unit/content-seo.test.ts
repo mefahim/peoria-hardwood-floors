@@ -19,6 +19,16 @@ import {
   validateSlug,
   findUnsupportedClaims,
 } from "@/lib/seo/content"
+import {
+  CASE_STUDIES,
+  TOPIC_CLUSTERS,
+  canPublishCaseStudy,
+  findGrowthTopicConflicts,
+  phase07FrameworkSummary,
+  validateCaseStudyRecord,
+  validateContentBrief,
+  validateInternalLinkRecommendation,
+} from "@/lib/seo/content-growth"
 
 describe("content and on-page SEO architecture", () => {
   it("assigns a purpose and primary topic to every current indexable public page", () => {
@@ -123,5 +133,98 @@ describe("content and on-page SEO architecture", () => {
   it("validates every published content record without critical issues", () => {
     const issues = CONTENT_SEO_RECORDS.flatMap((record) => validateContentSeoRecord(record))
     expect(issues.filter((issue) => issue.severity === "critical")).toEqual([])
+  })
+
+  it("models Phase 07 topic clusters as planning-only records mapped to existing services", () => {
+    expect(TOPIC_CLUSTERS).toHaveLength(6)
+    expect(TOPIC_CLUSTERS.every((cluster) => cluster.contentStatus === "planning-only")).toBe(true)
+    expect(TOPIC_CLUSTERS.every((cluster) => cluster.primaryServicePath.startsWith("/services/"))).toBe(true)
+  })
+
+  it("keeps the content brief workflow human-reviewable and non-publishing", () => {
+    const issues = validateContentBrief({
+      contentId: "brief-refinishing-process",
+      workingTitle: "Hardwood Floor Refinishing Process",
+      pagePurpose: "guide",
+      primaryTopic: "hardwood floor refinishing process",
+      secondaryTopics: ["sanding considerations"],
+      searchIntent: "informational",
+      targetAudience: "Homeowners evaluating refinishing.",
+      primaryServiceRelationship: "/services/hardwood-floor-refinishing-peoria-il",
+      geographicRelevance: "service-area",
+      proposedUrl: "/planned/hardwood-floor-refinishing-process",
+      existingUrlConflictCheck: "not-reviewed",
+      primaryCta: "/contact",
+      supportingInternalLinks: ["/services/hardwood-floor-refinishing-peoria-il"],
+      requiredEvidence: ["Verified service process source"],
+      unsupportedClaimsToAvoid: ["Guaranteed outcome", "unverified timeline"],
+      sourceMaterial: [],
+      factReviewRequirements: ["Human fact review"],
+      seoReviewRequirements: ["Cannibalization review"],
+      humanApproval: false,
+      status: "BRIEF",
+    })
+    expect(issues).toMatchObject([{ code: "url-conflict-review-required", severity: "warning" }])
+  })
+
+  it("publishes zero case studies until the evidence gate and human approval pass", () => {
+    expect(CASE_STUDIES).toHaveLength(0)
+    const incomplete = {
+      slug: "unverified-project",
+      projectIdentifier: "",
+      projectType: "",
+      servicePerformed: "",
+      verifiedProjectDescription: "",
+      projectImages: [],
+      factualProjectDetails: [],
+      documentedWorkPerformed: [],
+      evidenceStatus: "partial" as const,
+      relatedServicePath: "/services/hardwood-floor-refinishing-peoria-il",
+      publicationStatus: "published" as const,
+      humanApproval: false,
+    }
+    expect(canPublishCaseStudy(incomplete)).toBe(false)
+    expect(validateCaseStudyRecord(incomplete).some((issue) => issue.code === "publication-gate-failed")).toBe(true)
+    expect(phase07FrameworkSummary()).toMatchObject({ caseStudies: 0, caseStudyPublicationAllowed: false, aiPublishing: false, newPublicUrls: false })
+  })
+
+  it("rejects link recommendations to noindex or unpublished destinations", () => {
+    const issues = validateInternalLinkRecommendation({
+      sourcePath: "/services",
+      targetPath: "/visualizer",
+      reason: "Not a supporting content page",
+      anchorSuggestion: "Try the visualizer",
+      status: "suggested",
+    })
+    expect(issues).toEqual(expect.arrayContaining([
+      expect.objectContaining({ code: "unknown-link-target", severity: "critical" }),
+      expect.objectContaining({ code: "noindex-link-target", severity: "critical" }),
+    ]))
+  })
+
+  it("flags future briefs that duplicate an existing topic and intent", () => {
+    const conflicts = findGrowthTopicConflicts([{
+      contentId: "duplicate-home-topic",
+      workingTitle: "Duplicate Service Overview",
+      pagePurpose: "home",
+      primaryTopic: "hardwood flooring installation and refinishing",
+      secondaryTopics: [],
+      searchIntent: "local-service",
+      targetAudience: "Homeowners.",
+      primaryServiceRelationship: "/services",
+      geographicRelevance: "service-area",
+      proposedUrl: "/planned/duplicate-service-overview",
+      existingUrlConflictCheck: "conflict",
+      primaryCta: "/contact",
+      supportingInternalLinks: [],
+      requiredEvidence: [],
+      unsupportedClaimsToAvoid: [],
+      sourceMaterial: [],
+      factReviewRequirements: [],
+      seoReviewRequirements: [],
+      humanApproval: false,
+      status: "IDEA",
+    }])
+    expect(conflicts).toMatchObject([{ code: "growth-topic-conflict", severity: "warning" }])
   })
 })
