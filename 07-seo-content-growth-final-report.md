@@ -49,7 +49,6 @@ The updated specification file already existed in the GitHub baseline and was re
 The full project source archive was generated after validation. GitHub rejected it as a repository file because its size is 130,806,639 bytes, above GitHub's 100 MB repository-file limit. It was therefore uploaded as the `phase-07-framework` GitHub Release asset instead of being committed to `main`.
 
 Release asset: `peoria-hardwood-floors-phase-07.zip`  
-SHA-256: `4847aecf65cf3de190ee98f018cffb9d85230517cac710dd5af15eceb34a6a51`  
 Release: [SEO Phase 07 Framework](https://github.com/mefahim/peoria-hardwood-floors/releases/tag/phase-07-framework)
 
 ## SEO Validation
