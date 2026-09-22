@@ -154,4 +154,3 @@ Each stage is independently reversible:
 | 06D | `ef29ff1` | Review image accessibility and SEO |
 | 06E | `720c975` | Remove verified duplicate image asset |
 | 06F | `139b35c` | Add approved Open Graph image |
-
