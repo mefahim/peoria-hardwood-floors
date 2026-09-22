@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react"
 import { SectionHeading } from "@/components/section-heading"
 
 const stats = [
-  { value: "Since 2004", label: "Experience in the trade" },
+  { value: "Wood", label: "Focused specialty" },
   { value: "75 mi", label: "Service radius from Peoria" },
   { value: "Family", label: "Owned & operated" },
 ]
@@ -45,6 +45,13 @@ export function HomeIntro() {
             className="mt-8 inline-flex items-center gap-2 font-medium text-foreground underline-offset-4 hover:underline"
           >
             More about us
+            <ArrowUpRight className="h-4 w-4 text-accent" />
+          </Link>
+          <Link
+            href="/contact"
+            className="ml-6 mt-8 inline-flex items-center gap-2 font-medium text-foreground underline-offset-4 hover:underline"
+          >
+            Talk through your project
             <ArrowUpRight className="h-4 w-4 text-accent" />
           </Link>
         </div>

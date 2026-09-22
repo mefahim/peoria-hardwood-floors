@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils"
 
 export function CtaBand({
   title = "Ready to talk about your floors?",
-  subtitle = "Call or email for a free, no-pressure assessment. We answer real questions about your project — no fragile contact forms.",
+  subtitle = "Call or email to discuss your project and the right next step. We answer real questions — no fragile contact forms.",
   className,
 }: {
   title?: string

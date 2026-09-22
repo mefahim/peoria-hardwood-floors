@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Phone, Mail, Facebook, Instagram, MapPin } from "lucide-react"
-import { site, serviceAreas, services } from "@/lib/site"
+import { site, services } from "@/lib/site"
 import { Logo } from "@/components/logo"
 
 export function SiteFooter() {
@@ -12,24 +12,8 @@ export function SiteFooter() {
             <Logo className="h-16 w-[300px] text-background sm:h-20 sm:w-[350px]" />
             <p className="max-w-xs text-sm leading-relaxed text-background/70">{site.tagline}</p>
             <div className="flex gap-3">
-              <a
-                href={site.facebook}
-                aria-label="Facebook"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-9 w-9 items-center justify-center border border-background/25 transition-colors hover:bg-background hover:text-foreground"
-              >
-                <Facebook className="h-4 w-4" />
-              </a>
-              <a
-                href={site.instagram}
-                aria-label="Instagram"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-9 w-9 items-center justify-center border border-background/25 transition-colors hover:bg-background hover:text-foreground"
-              >
-                <Instagram className="h-4 w-4" />
-              </a>
+              {site.facebook ? <a href={site.facebook} aria-label="Facebook" target="_blank" rel="noopener noreferrer" className="flex h-9 w-9 items-center justify-center border border-background/25 transition-colors hover:bg-background hover:text-foreground"><Facebook className="h-4 w-4" /></a> : null}
+              {site.instagram ? <a href={site.instagram} aria-label="Instagram" target="_blank" rel="noopener noreferrer" className="flex h-9 w-9 items-center justify-center border border-background/25 transition-colors hover:bg-background hover:text-foreground"><Instagram className="h-4 w-4" /></a> : null}
             </div>
           </div>
 
@@ -89,11 +73,6 @@ export function SiteFooter() {
               </li>
             </ul>
           </div>
-        </div>
-
-        <div className="mt-12 border-t border-background/15 pt-8">
-          <p className="mb-3 text-xs uppercase tracking-[0.2em] text-background/50">Service Area</p>
-          <p className="text-sm leading-relaxed text-background/65">{serviceAreas.join(" · ")}</p>
         </div>
 
         <div className="mt-8 flex flex-col items-start justify-between gap-3 border-t border-background/15 pt-6 text-xs text-background/50 sm:flex-row sm:items-center">

@@ -33,7 +33,16 @@ export default function ServicesPage() {
       />
 
       <section className="bg-background">
-        <div className="container mx-auto space-y-px px-6 py-20 lg:py-28">
+        <div className="container mx-auto px-6 pt-20 lg:pt-28">
+          <div className="grid gap-8 border-b border-border pb-12 lg:grid-cols-[1.2fr_.8fr] lg:items-end">
+            <div>
+              <p className="text-xs uppercase tracking-[0.24em] text-accent">Choose the right starting point</p>
+              <h2 className="mt-3 font-serif text-3xl leading-tight md:text-4xl">Start with the condition of the wood and the way you use the space.</h2>
+              <p className="mt-4 max-w-2xl leading-relaxed text-muted-foreground">New floors call for material and subfloor planning. Existing floors may need a full refinish, a lower-disruption sandless refresh, or a focused repair. Commercial, deck, and cabinet work each has its own preparation and scheduling considerations.</p>
+            </div>
+            <Link href="/contact" className="inline-flex items-center gap-2 font-medium underline-offset-4 hover:underline lg:justify-self-end">Talk through your project <ArrowUpRight className="h-4 w-4 text-accent" /></Link>
+          </div>
+          <div className="space-y-px pb-20 lg:pb-28">
           {services.map((s, i) => (
             <Link
               key={s.slug}
@@ -62,6 +71,7 @@ export default function ServicesPage() {
               </div>
             </Link>
           ))}
+          </div>
         </div>
       </section>
 

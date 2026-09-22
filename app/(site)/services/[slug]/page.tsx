@@ -25,7 +25,7 @@ export async function generateMetadata({
   if (!service) return {}
   return createPageMetadata({
     title: `${service.title} in Peoria & Central Illinois`,
-    description: `${service.short} Call ${site.phone} for a free assessment.`,
+    description: `${service.short} Call ${site.phone} to discuss the project scope.`,
     path: `/services/${service.slug}`,
   })
 }
@@ -77,6 +77,12 @@ export default async function ServiceDetailPage({
               <p className="mt-6 text-lg leading-relaxed text-muted-foreground">{service.who}</p>
             </div>
 
+            {service.slug === "hardwood-floor-refinishing-peoria-il" ? (
+              <div className="border-l-2 border-accent pl-5 text-sm leading-relaxed text-muted-foreground">
+                Full refinishing sands the existing finish and prepares the wood for a new stain or finish. If the wear is limited to the existing surface, compare it with <Link href="/services/sandless-floor-refinishing-peoria-il" className="font-medium text-foreground underline-offset-4 hover:underline">sandless refinishing</Link> before choosing a scope.
+              </div>
+            ) : null}
+
             <div>
               <h3 className="font-serif text-2xl">How the process works</h3>
               <ol className="mt-6 space-y-4">
@@ -106,6 +112,16 @@ export default async function ServiceDetailPage({
               </ul>
             </div>
 
+            <div className="flex flex-wrap gap-x-6 gap-y-3 border-y border-border py-6 text-sm">
+              {service.slug === "hardwood-floor-installation-peoria-il" ? <Link href="/products" className="font-medium underline-offset-4 hover:underline">Compare flooring products</Link> : null}
+              {service.slug === "hardwood-floor-refinishing-peoria-il" ? <><Link href="/finishes" className="font-medium underline-offset-4 hover:underline">Compare finishes</Link><Link href="/stains" className="font-medium underline-offset-4 hover:underline">Explore stain directions</Link></> : null}
+              {service.slug === "sandless-floor-refinishing-peoria-il" ? <Link href="/services/hardwood-floor-refinishing-peoria-il" className="font-medium underline-offset-4 hover:underline">Compare full refinishing</Link> : null}
+              {service.slug === "commercial-sports-flooring-central-illinois" ? <Link href="/gallery" className="font-medium underline-offset-4 hover:underline">View selected work</Link> : null}
+              {service.slug === "deck-refinishing-peoria-il" ? <Link href="/gallery" className="font-medium underline-offset-4 hover:underline">View selected work</Link> : null}
+              {service.slug === "cabinet-refinishing-peoria-il" ? <Link href="/finishes" className="font-medium underline-offset-4 hover:underline">Review finish directions</Link> : null}
+              <Link href="/contact" className="font-medium underline-offset-4 hover:underline">Talk through your project</Link>
+            </div>
+
             <div>
               <h3 className="font-serif text-2xl">Frequently asked</h3>
               <div className="mt-6 divide-y divide-border border-y border-border">
@@ -124,7 +140,7 @@ export default async function ServiceDetailPage({
 
           <aside className="lg:sticky lg:top-28 lg:h-fit">
             <div className="border border-border bg-secondary p-8">
-              <h3 className="font-serif text-2xl">Get a free assessment</h3>
+              <h3 className="font-serif text-2xl">Discuss your project</h3>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
                 Tell us about your space and we&apos;ll give honest guidance and a realistic estimate — no pressure.
               </p>

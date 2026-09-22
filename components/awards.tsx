@@ -1,31 +1,13 @@
-import { Award } from "lucide-react"
 import { clients } from "@/lib/site"
 
 export function Awards() {
   return (
     <section className="border-b border-border bg-background">
       <div className="container mx-auto px-6 py-14">
-        <div className="flex flex-col items-center gap-10 md:flex-row md:justify-between">
-          <div className="flex flex-wrap items-center justify-center gap-6">
-            <div className="flex items-center gap-3 border border-border px-5 py-4">
-              <span className="font-serif text-3xl leading-none">40</span>
-              <span className="text-xs uppercase leading-tight tracking-[0.18em] text-muted-foreground">
-                Under
-                <br />
-                40 Honoree
-              </span>
-            </div>
-            <div className="flex items-center gap-3 border border-border px-5 py-4">
-              <Award className="h-8 w-8 text-accent" />
-              <span className="text-xs uppercase leading-tight tracking-[0.18em] text-muted-foreground">
-                Award-winning
-                <br />
-                service · Central Illinois
-              </span>
-            </div>
-          </div>
-          <p className="max-w-sm text-center text-sm text-muted-foreground md:text-right">
-            Recognized craftsmanship and a reputation built one Central Illinois floor at a time.
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="text-xs uppercase tracking-[0.2em] text-accent">Focused on wood</p>
+          <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+            Installation, sanding, refinishing, stains, and finishes for homes and businesses across Peoria and Central Illinois.
           </p>
         </div>
       </div>

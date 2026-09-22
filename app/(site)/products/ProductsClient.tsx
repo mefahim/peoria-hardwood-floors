@@ -55,7 +55,7 @@ const products = [
 
 const catalogProducts = [
   { title: "Unfinished Domestic", source: "Domestic solid hardwood in multiple species, grades, cuts, widths, and custom specifications.", items: ["Yellow pine grade 2", "Yellow pine grade 1", "Yellow birch character", "Red oak character", "2 common white oak", "1 common white oak"], image: "/images/rhodes-product-catalog.png" },
-  { title: "Prefinished Exotic", source: "Imported Brazilian and exotic flooring with factory aluminum-oxide finish and nationwide sourcing options.", items: ["Brazilian walnut", "Brazilian cherry", "Santos mahogany", "Brazilian teak", "Tigerwood", "Patagonian rosewood"], image: "/images/new-images/IMG_0210.jpg" },
+  { title: "Prefinished Exotic", source: "Imported Brazilian and exotic flooring with factory aluminum-oxide finish options.", items: ["Brazilian walnut", "Brazilian cherry", "Santos mahogany", "Brazilian teak", "Tigerwood", "Patagonian rosewood"], image: "/images/new-images/IMG_0210.jpg" },
   { title: "Unfinished Exotic", source: "Distinctive imported species available for custom site finishing and special-order projects.", items: ["Golden teak garapa", "Caribbean heart pine", "Brazilian walnut", "Brazilian teak cumaru", "Brazilian chestnut sucupira", "Brazilian cherry herringbone", "Brazilian oak tauari"], image: "/images/new-images/IMG_0266.JPG" },
   { title: "Engineered Hardwood", source: "Stable multi-ply construction for concrete, basements, radiant heat, condos, and extra-wide planks.", items: ["White oak character", "Walnut character", "Select white oak", "Select walnut", "Herringbone white oak", "Chevron walnut", "Circle sawn oak", "Heart pine"], image: "/images/new-images/IMG_0379.jpeg" },
   { title: "Engineered Exotic", source: "Imported exotic engineered flooring with flexible widths and a substantial real-wood wear layer.", items: ["Santos mahogany", "Patagonian rosewood", "Brazilian walnut", "Brazilian pecan", "Brazilian cherry", "Bolivian rosewood", "Amendoim"], image: "/images/new-images/IMG_0484.jpeg" },
@@ -85,7 +85,7 @@ export default function ProductsPage() {
               More than a catalog. A place to start the conversation.
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              We have accounts with several manufacturers, mills, importers, and reclaimed flooring specialists. We can generally source just about any wood flooring option imaginable — and can often order product to specific specs, have it stained, finished, or textured to spec.
+              We work with a range of manufacturers, mills, importers, and reclaimed flooring specialists. Options can be reviewed against your project specifications, including species, width, stain, finish, and texture where available.
             </p>
           </div>
 
@@ -138,6 +138,9 @@ export default function ProductsPage() {
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
+              <Link href="/services/hardwood-floor-installation-peoria-il" className="inline-flex items-center gap-2 border border-foreground px-6 py-3 font-medium hover:bg-background">
+                Plan an installation <ArrowRight className="h-4 w-4" />
+              </Link>
               <Link href="/contact" className="inline-flex items-center gap-2 bg-foreground px-6 py-3 font-medium text-background hover:bg-accent">
                 Talk with us <ArrowRight className="h-4 w-4" />
               </Link>

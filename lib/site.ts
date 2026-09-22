@@ -4,8 +4,8 @@ export const site = {
   phoneHref: "tel:+13098635246",
   email: "peoriahardwoodfloors@gmail.com",
   emailHref: "mailto:peoriahardwoodfloors@gmail.com",
-  facebook: "https://www.facebook.com/",
-  instagram: "https://www.instagram.com/",
+  facebook: "",
+  instagram: "",
   tagline: "Family-owned hardwood flooring, serving Peoria & Central Illinois.",
   serviceRadius: "within roughly 75 miles of Peoria, Illinois",
 }
@@ -83,7 +83,7 @@ export const services: Service[] = [
   {
     slug: "hardwood-floor-refinishing-peoria-il",
     title: "Sanding & Refinishing",
-    short: "Restore scratched, worn, or dated floors to a like-new finish.",
+    short: "Restore scratched, worn, or dated floors with a renewed finish.",
     intent: "hardwood floor refinishing Peoria IL",
     hero: "Bring tired floors back to life.",
     image: "/images/new-images/IMG_0214.jpg",
@@ -92,8 +92,8 @@ export const services: Service[] = [
       "Assess wear, board condition, and remaining wear layer.",
       "Dustless-system sanding to bare wood.",
       "Optional stain color of your choice.",
-      "Premium finish applied in multiple coats.",
-      "Cure guidance so your floor lasts for years.",
+      "Finish applied in multiple coats.",
+      "Cure and care guidance for the finished floor.",
     ],
     factors: [
       "Square footage and number of rooms.",
@@ -102,7 +102,7 @@ export const services: Service[] = [
       "Board repairs and detail sanding around cabinets and stairs.",
     ],
     faqs: [
-      { q: "How do I know if my floor can be refinished?", a: "Most solid hardwood can be refinished several times over its life. We check the wear layer and board condition during a free assessment before recommending sanding or a sandless refresh." },
+      { q: "How do I know if my floor can be refinished?", a: "Most solid hardwood can be refinished several times over its life. We check the wear layer and board condition during a project assessment before recommending sanding or a sandless refresh." },
       { q: "Is there a lot of dust?", a: "We use a dust-containment sanding system that captures the large majority of sanding dust. Some fine cleanup is normal, and we leave your space tidy." },
       { q: "Can you match my existing floor?", a: "In many cases we can blend repairs and stain color to closely match adjacent areas. We will set clear expectations before we begin." },
     ],
@@ -110,7 +110,7 @@ export const services: Service[] = [
   {
     slug: "sandless-floor-refinishing-peoria-il",
     title: "Sandless Refinishing",
-    short: "A lower-disruption buff-and-recoat that refreshes eligible floors fast.",
+    short: "A lower-disruption buff-and-recoat for eligible floors.",
     intent: "sandless hardwood floor refinishing Peoria",
     hero: "A fresh coat, far less disruption.",
     image: "/images/new-images/IMG_1088.JPG",
@@ -119,7 +119,7 @@ export const services: Service[] = [
       "Inspect the existing finish for adhesion and eligibility.",
       "Deep clean and abrade (buff) the surface.",
       "Apply a fresh maintenance coat of finish.",
-      "Same-fast return to light use.",
+      "Review when light use is appropriate after the finish is applied.",
     ],
     factors: [
       "Square footage of eligible area.",
@@ -128,7 +128,7 @@ export const services: Service[] = [
     ],
     faqs: [
       { q: "Is sandless right for my floor?", a: "Sandless refinishing works when the existing finish is intact and the damage is limited to the surface. If wood is bare, deeply scratched, or water-damaged, a full sand-and-refinish is the better choice. We help you decide." },
-      { q: "How is it different from full refinishing?", a: "Sandless (buff-and-recoat) refreshes the top finish layer without sanding to bare wood, so it is faster and lower cost — but it will not remove deep scratches or change raw wood color the way a full refinish can." },
+      { q: "How is it different from full refinishing?", a: "Sandless (buff-and-recoat) refreshes the top finish layer without sanding to bare wood. It can involve less disruption than a full refinish, but it will not remove deep scratches or change raw wood color the way a full refinish can." },
     ],
   },
   {
@@ -143,7 +143,7 @@ export const services: Service[] = [
       "Site visit and scope planning around your schedule.",
       "Recommendations for game lines, logos, and durable finishes.",
       "Sanding, staining, or installation as required.",
-      "Commercial-grade finish for maximum wear resistance.",
+      "Commercial-grade finish selected for the intended use.",
       "Coordinated timing to minimize downtime.",
     ],
     factors: [
@@ -160,7 +160,7 @@ export const services: Service[] = [
   {
     slug: "deck-refinishing-peoria-il",
     title: "Deck Refinishing",
-    short: "Clean, repair, and re-coat exterior wood so your deck lasts through Illinois seasons.",
+    short: "Clean, repair, and re-coat exterior wood for another Illinois season.",
     intent: "deck refinishing Peoria IL",
     hero: "Protect your outdoor wood.",
     image: "/images/new-images/IMG_1329.jpeg",
@@ -203,7 +203,7 @@ export const services: Service[] = [
       "Detail and hardware handling.",
     ],
     faqs: [
-      { q: "Do I have to replace my cabinets?", a: "Often, no. If the boxes and doors are structurally sound, refinishing gives you an updated look for a fraction of replacement cost." },
+      { q: "Do I have to replace my cabinets?", a: "Often, no. If the boxes and doors are structurally sound, refinishing can update the look without replacing the cabinetry." },
       { q: "How durable is the finish?", a: "We use durable finishes suited to kitchen and bath use. We'll review care tips so your refreshed cabinets stay looking great." },
     ],
   },
@@ -233,7 +233,7 @@ export const stains: Stain[] = [
   { name: "Espresso", family: "Deep neutral", image: "/images/new-images/IMG_0628.jpeg", tone: "Dark", notes: "Dramatic contrast for tailored interiors.", color: "#4a3028", brand: "Minwax" },
 ]
 
-export const clients = ["Bona", "DuraSeal", "Minwax", "Rubio Monocoat", "Loba", "NWFA"]
+export const clients = ["Bona", "DuraSeal", "Minwax", "Rubio Monocoat", "Loba"]
 
 export const galleryImages = [
   { src: "/images/new-images/IMG_0039.JPG", alt: "Warm hardwood floor in a finished room", service: "Installation" },
@@ -265,9 +265,4 @@ export const galleryImages = [
   { src: "/images/new-images/IMG_3378.JPG", alt: "Wood grain and stain detail", service: "Stains" },
   { src: "/images/new-images/IMG_3390.JPG", alt: "Completed flooring project", service: "Installation" },
   { src: "/images/new-images/IMG_3392.JPG", alt: "Custom flooring close-up", service: "Custom detail" },
-]
-
-export const testimonials = [
-  { quote: "The floor changed the whole feel of our home. The work was careful, clean, and the finished color is exactly what we hoped for.", name: "Peoria homeowner", location: "Peoria, IL" },
-  { quote: "They helped us sort through options without pushing us toward one product. We ended up with a floor that fits the house and our budget.", name: "Central Illinois client", location: "Dunlap, IL" },
 ]

@@ -1,5 +1,5 @@
 import { MapPin } from "lucide-react"
-import { serviceAreas, site } from "@/lib/site"
+import { site } from "@/lib/site"
 import { SectionHeading } from "@/components/section-heading"
 
 export function ServiceAreaBand() {
@@ -11,17 +11,10 @@ export function ServiceAreaBand() {
           title="Serving Peoria & Central Illinois"
           description={`We travel to homes and businesses ${site.serviceRadius}. If you're nearby and not listed, give us a call — chances are we cover your town.`}
         />
-        <ul className="mt-10 flex flex-wrap gap-3">
-          {serviceAreas.map((area) => (
-            <li
-              key={area}
-              className="inline-flex items-center gap-2 border border-border bg-background px-4 py-2 text-sm text-foreground/80"
-            >
-              <MapPin className="h-3.5 w-3.5 text-accent" />
-              {area}
-            </li>
-          ))}
-        </ul>
+        <p className="mt-10 inline-flex items-center gap-2 border border-border bg-background px-4 py-2 text-sm text-foreground/80">
+          <MapPin className="h-3.5 w-3.5 text-accent" />
+          Peoria and nearby Central Illinois communities
+        </p>
       </div>
     </section>
   )
