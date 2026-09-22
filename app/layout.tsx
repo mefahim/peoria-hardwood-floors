@@ -31,12 +31,21 @@ export const metadata: Metadata = {
       "Family-owned hardwood flooring specialists serving Peoria and Central Illinois. Installation, refinishing, stains, and custom finishes.",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "/images/og-default.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Bright kitchen with light hardwood flooring",
+      },
+    ],
   },
   twitter: {
     card: "summary",
     title: "Peoria Hardwood Floors | Installation & Refinishing in Central Illinois",
     description:
       "Family-owned hardwood flooring specialists serving Peoria and Central Illinois.",
+    images: ["/images/og-default.jpg"],
   },
 }
 

@@ -7,6 +7,12 @@ type Robots = {
 }
 
 export const PRODUCTION_ORIGIN = "https://peoriahardwoodfloors.com"
+const SOCIAL_IMAGE = {
+  url: "/images/og-default.jpg",
+  width: 1200,
+  height: 630,
+  alt: "Bright kitchen with light hardwood flooring",
+} as const
 
 export const PUBLIC_STATIC_ROUTES = [
   "/",
@@ -105,11 +111,13 @@ export function createPageMetadata({ title, description, path, indexable = true,
       type: "website",
       url,
       locale: "en_US",
+      images: [SOCIAL_IMAGE],
     },
     twitter: {
       card: "summary",
       title,
       description,
+      images: [SOCIAL_IMAGE.url],
     },
   }
 }
