@@ -1,8 +1,8 @@
 # SEO Phase 06G — Final Image Performance Validation
 
-**Project:** Peoria Hardwood Floors  
-**Stage:** 06G — Final Performance Validation  
-**Implementation baseline:** `139b35c` before this report commit  
+**Project:** Peoria Hardwood Floors
+**Stage:** 06G — Final Performance Validation
+**Implementation baseline:** `139b35c` before this report commit
 **Status:** PASS WITH DOCUMENTED MEASUREMENT LIMITATIONS
 
 ## Phase 06 implementation summary

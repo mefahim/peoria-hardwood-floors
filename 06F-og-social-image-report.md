@@ -1,8 +1,8 @@
 # SEO Phase 06F — Open Graph & Social Image Report
 
-**Project:** Peoria Hardwood Floors  
-**Stage:** 06F — OG / Social Image  
-**Previous stage:** 06E, commit `720c975`  
+**Project:** Peoria Hardwood Floors
+**Stage:** 06F — OG / Social Image
+**Previous stage:** 06E, commit `720c975`
 **Status:** PASS
 
 ## Approved image

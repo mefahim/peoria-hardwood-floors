@@ -1,8 +1,8 @@
 # SEO Phase 06C — Gallery Performance Report
 
-**Project:** Peoria Hardwood Floors  
-**Stage:** 06C — Gallery Performance  
-**Previous stage:** 06B, commit `2627236`  
+**Project:** Peoria Hardwood Floors
+**Stage:** 06C — Gallery Performance
+**Previous stage:** 06B, commit `2627236`
 **Status:** PASS — measured, no UX change justified
 
 ## Current behavior

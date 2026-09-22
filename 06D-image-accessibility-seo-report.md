@@ -1,8 +1,8 @@
 # SEO Phase 06D — Image Accessibility & SEO Review
 
-**Project:** Peoria Hardwood Floors  
-**Stage:** 06D — Image Accessibility & SEO Refinement  
-**Previous stage:** 06C, no-code-change gallery validation  
+**Project:** Peoria Hardwood Floors
+**Stage:** 06D — Image Accessibility & SEO Refinement
+**Previous stage:** 06C, no-code-change gallery validation
 **Status:** PASS — review completed, no speculative bulk rewrite
 
 ## Review scope

@@ -1,9 +1,9 @@
 # SEO Phase 06A — Native Image Optimization Experiment Report
 
-**Project:** Peoria Hardwood Floors  
-**Stage:** 06A — Native Image Optimization  
-**Base commit:** `587ed5b`  
-**Implementation commit:** pending  
+**Project:** Peoria Hardwood Floors
+**Stage:** 06A — Native Image Optimization
+**Base commit:** `587ed5b`
+**Implementation commit:** pending
 **Status:** PASS
 
 ## Scope

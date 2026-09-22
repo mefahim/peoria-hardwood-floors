@@ -1,8 +1,8 @@
 # SEO Phase 06E — Image Asset Hygiene Report
 
-**Project:** Peoria Hardwood Floors  
-**Stage:** 06E — Asset Hygiene  
-**Previous stage:** 06D, commit `ef29ff1`  
+**Project:** Peoria Hardwood Floors
+**Stage:** 06E — Asset Hygiene
+**Previous stage:** 06D, commit `ef29ff1`
 **Status:** PASS
 
 ## Cleanup performed

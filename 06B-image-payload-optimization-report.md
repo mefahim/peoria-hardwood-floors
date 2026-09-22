@@ -1,8 +1,8 @@
 # SEO Phase 06B — Image Payload & Responsive Delivery Report
 
-**Project:** Peoria Hardwood Floors  
-**Stage:** 06B — Image Payload & Responsive Delivery  
-**Previous stage:** 06A, commit `57e2456`  
+**Project:** Peoria Hardwood Floors
+**Stage:** 06B — Image Payload & Responsive Delivery
+**Previous stage:** 06A, commit `57e2456`
 **Status:** PASS
 
 ## Implementation

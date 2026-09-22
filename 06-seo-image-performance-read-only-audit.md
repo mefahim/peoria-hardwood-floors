@@ -1,9 +1,9 @@
 # Phase 06 — Image SEO + Performance Read-Only Audit
 
-**Project:** Peoria Hardwood Floors  
-**Audit mode:** Read-only inspection  
-**Audit baseline:** `main` at `8653f53`  
-**Phase 05B status:** Completed and verified before this audit  
+**Project:** Peoria Hardwood Floors
+**Audit mode:** Read-only inspection
+**Audit baseline:** `main` at `8653f53`
+**Phase 05B status:** Completed and verified before this audit
 **Implementation status:** No code, image asset, dependency, lockfile, URL, or architecture change was made during this audit
 
 ## 1. Executive Summary
