@@ -12,7 +12,7 @@ This implementation adds the secure, read-only SEO Dashboard foundation inside t
 
 ## Implementation commit
 
-`df2579d5016ee00e6430f79e92d1b558e0ad585f` (`feat(seo-dashboard): implement dashboard foundation`)
+`833e8dc5e52a7f4bd38ff66b9839d81467559539` (`feat(seo-dashboard): implement dashboard foundation`)
 
 ## Existing authentication architecture
 
