@@ -52,3 +52,4 @@ poc/fal/.env.*
 # generated visualization images may contain a customer's uploaded room photo.
 /data/
 /public/generated/
+data/seo-phase-07-governance.json
