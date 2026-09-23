@@ -3,9 +3,11 @@ import { AdminShell } from "@/app/admin/AdminShell"
 import { SeoDashboardClient } from "@/app/admin/seo/SeoDashboardClient"
 import { SeoManagementClient } from "@/app/admin/seo/SeoManagementClient"
 import { SeoGovernanceClient } from "@/app/admin/seo/SeoGovernanceClient"
+import { LocalGovernanceClient } from "@/app/admin/seo/LocalGovernanceClient"
 import { requireSeoDashboardAccess } from "@/lib/admin/authorization"
 import { buildSeoDashboardData } from "@/lib/seo/dashboard"
 import { getGovernanceSnapshot } from "@/lib/seo/governance"
+import { getLocalSnapshot } from "@/lib/seo/local-management"
 import { listManagedSeoEntities } from "@/lib/seo/management"
 
 export const dynamic = "force-dynamic"
@@ -15,6 +17,7 @@ export default async function SeoDashboardPage() {
   const data = buildSeoDashboardData()
   const entities = await listManagedSeoEntities()
   const governance = await getGovernanceSnapshot()
+  const local = await getLocalSnapshot()
 
   return (
     <AdminShell active="/admin/seo">
@@ -31,6 +34,7 @@ export default async function SeoDashboardPage() {
       <SeoDashboardClient data={data} />
       <SeoManagementClient initialEntities={entities} canEdit={principal.role === "Admin" || principal.role === "SEO Manager"} />
       <SeoGovernanceClient initialSnapshot={governance} role={principal.role ?? "Reviewer"} />
+      <LocalGovernanceClient initialSnapshot={local} role={principal.role ?? "Reviewer"} />
     </AdminShell>
   )
 }

@@ -15,7 +15,7 @@ const MAX_HISTORY_ENTRIES = 500
 
 export type SeoOverride = { title?: string; description?: string; updatedAt: string; updatedBy: string }
 export type SeoOverridesFile = { version: 1; overrides: Record<string, SeoOverride> }
-export type SeoChangeEvent = { id: string; actor: string; timestamp: string; entity: "page" | "service"; entityId: string; field: "title" | "description" | "override"; previousValue: string | null; newValue: string | null; action: "set" | "reset"; source: "seo-dashboard" }
+export type SeoChangeEvent = { id: string; actor: string; timestamp: string; entity: "page" | "service" | "business" | "location" | "case-study"; entityId: string; field: "title" | "description" | "override" | "pending-fact" | "record"; previousValue: string | null; newValue: string | null; action: "set" | "reset"; source: "seo-dashboard" }
 export type ManagedSeoEntity = {
   entity: "page" | "service"
   route: string
