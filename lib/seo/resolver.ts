@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { readSeoOverrideSync } from "@/lib/seo/override-store"
 
 type Robots = {
   index?: boolean
@@ -99,15 +100,18 @@ export function canonicalUrl(path: string, override?: string): string {
 
 export function createPageMetadata({ title, description, path, indexable = true, canonical }: MetadataOptions): Metadata {
   const url = canonicalUrl(path, canonical)
+  const override = readSeoOverrideSync(path)
+  const effectiveTitle = override?.title ?? title
+  const effectiveDescription = override?.description ?? description
   const robots: Robots = indexable ? { index: true, follow: true } : { index: false, follow: true }
   return {
-    title,
-    description,
+    title: effectiveTitle,
+    description: effectiveDescription,
     alternates: { canonical: url },
     robots,
     openGraph: {
-      title,
-      description,
+      title: effectiveTitle,
+      description: effectiveDescription,
       type: "website",
       url,
       locale: "en_US",
@@ -115,8 +119,8 @@ export function createPageMetadata({ title, description, path, indexable = true,
     },
     twitter: {
       card: "summary",
-      title,
-      description,
+      title: effectiveTitle,
+      description: effectiveDescription,
       images: [SOCIAL_IMAGE.url],
     },
   }

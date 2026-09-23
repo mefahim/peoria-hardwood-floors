@@ -1,14 +1,17 @@
 import { Badge } from "@/components/ui/badge"
 import { AdminShell } from "@/app/admin/AdminShell"
 import { SeoDashboardClient } from "@/app/admin/seo/SeoDashboardClient"
+import { SeoManagementClient } from "@/app/admin/seo/SeoManagementClient"
 import { requireSeoDashboardAccess } from "@/lib/admin/authorization"
 import { buildSeoDashboardData } from "@/lib/seo/dashboard"
+import { listManagedSeoEntities } from "@/lib/seo/management"
 
 export const dynamic = "force-dynamic"
 
 export default async function SeoDashboardPage() {
   const principal = await requireSeoDashboardAccess()
   const data = buildSeoDashboardData()
+  const entities = await listManagedSeoEntities()
 
   return (
     <AdminShell active="/admin/seo">
@@ -23,6 +26,7 @@ export default async function SeoDashboardPage() {
         <Badge variant="secondary">{principal.role} access</Badge>
       </div>
       <SeoDashboardClient data={data} />
+      <SeoManagementClient initialEntities={entities} canEdit={principal.role === "Admin" || principal.role === "SEO Manager"} />
     </AdminShell>
   )
 }
