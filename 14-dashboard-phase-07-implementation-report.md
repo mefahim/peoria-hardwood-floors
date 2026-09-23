@@ -6,7 +6,7 @@ The clean-tree baseline was `b631161a266c2fabe83f21634040fbd0d2adae1f` from `mef
 
 ## 2. Implementation commit
 
-The implementation commit is `e68360531a689a7ca5b8f2301616411ba8968b8f`. The commit subject is `feat(seo-dashboard): add internal link and image seo governance`.
+The implementation commit is `5bd8c2d25874a05914905f462a35ba7a4dde9077`. The commit subject is `feat(seo-dashboard): add internal link and image seo governance`.
 
 ## 3. Internal-link implementation
 
@@ -98,7 +98,7 @@ Runtime review data is intentionally ignored and is not part of the commit.
 
 ## 21. Rollback instructions
 
-Revert commit `e68360531a689a7ca5b8f2301616411ba8968b8f`. No dependency or database rollback is required. If review decisions must be retained, preserve `data/seo-phase-07-governance.json` before removing the deployed code. Do not destructively remove the existing `data/seo-change-history.json`; it is shared append-only history for earlier phases.
+Revert commit `5bd8c2d25874a05914905f462a35ba7a4dde9077`. No dependency or database rollback is required. If review decisions must be retained, preserve `data/seo-phase-07-governance.json` before removing the deployed code. Do not destructively remove the existing `data/seo-change-history.json`; it is shared append-only history for earlier phases.
 
 ## 22. Known limitations
 
