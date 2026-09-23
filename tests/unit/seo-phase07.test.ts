@@ -29,6 +29,7 @@ describe("SEO dashboard Phase 07", () => {
   })
   it("rejects arbitrary review ids and bounds history pagination", () => {
     expect(validateReviewMutation({ kind: "link", id: "not-real", state: "ACCEPTED" })).toHaveProperty("error")
+    expect(validateReviewMutation({ kind: "link", id: buildInternalLinkRows()[0]?.id, state: "NOT_A_STATE" })).toHaveProperty("error")
     const history = Array.from({ length: 80 }, (_, i) => ({ id: String(i), actor: "Admin", timestamp: new Date(2026, 0, i + 1).toISOString(), entity: "page" as const, entityId: `/page-${i}`, field: "record" as const, previousValue: null, newValue: null, action: "set" as const, source: "seo-dashboard" as const }))
     const result = filterHistory(history, { page: 2, pageSize: 10, entity: "page" })
     expect(result.total).toBe(80)
