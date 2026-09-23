@@ -5,6 +5,7 @@ import { SeoManagementClient } from "@/app/admin/seo/SeoManagementClient"
 import { SeoGovernanceClient } from "@/app/admin/seo/SeoGovernanceClient"
 import { LocalGovernanceClient } from "@/app/admin/seo/LocalGovernanceClient"
 import { Phase07Client } from "@/app/admin/seo/Phase07Client"
+import { GovernanceWorkspaceNav } from "@/app/admin/seo/GovernanceWorkspaceNav"
 import { requireSeoDashboardAccess } from "@/lib/admin/authorization"
 import { buildSeoDashboardData } from "@/lib/seo/dashboard"
 import { getGovernanceSnapshot } from "@/lib/seo/governance"
@@ -34,12 +35,16 @@ export default async function SeoDashboardPage() {
         </div>
         <Badge variant="secondary">{principal.role} access</Badge>
       </div>
+      <section aria-labelledby="governance-workspace-heading" className="mt-8 rounded-lg border border-border bg-secondary/20 p-5 sm:p-6">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">Operations map</p>
+        <h2 id="governance-workspace-heading" className="mt-2 text-xl font-semibold tracking-tight">SEO governance workspace</h2>
+        <p className="mt-1 max-w-3xl text-sm leading-6 text-muted-foreground">Move between the existing topics, content, local, evidence, link, image, and history workspaces. All review and publication boundaries remain server-controlled.</p>
+        <GovernanceWorkspaceNav />
+      </section>
       <SeoDashboardClient data={data} />
       <SeoManagementClient initialEntities={entities} canEdit={principal.role === "Admin" || principal.role === "SEO Manager"} />
-      <div id="topics-content"><SeoGovernanceClient initialSnapshot={governance} role={principal.role ?? "Reviewer"} /></div>
-      <div id="content-briefs" className="scroll-mt-24" aria-label="Content briefs are not currently available"><div className="sr-only">Content briefs are not currently available in this dashboard.</div></div>
-      <div id="local-seo"><LocalGovernanceClient initialSnapshot={local} role={principal.role ?? "Reviewer"} /></div>
-      <div id="case-studies" className="scroll-mt-24" aria-label="Case studies are governed in the local SEO workspace"><div className="sr-only">Case studies are governed in the existing local SEO workspace.</div></div>
+      <div id="topics-content" className="scroll-mt-24"><div id="content-opportunities" className="scroll-mt-24" /><div id="content-briefs" className="scroll-mt-24" /><SeoGovernanceClient initialSnapshot={governance} role={principal.role ?? "Reviewer"} /></div>
+      <div id="local-seo" className="scroll-mt-24"><div id="case-studies" className="scroll-mt-24" /><LocalGovernanceClient initialSnapshot={local} role={principal.role ?? "Reviewer"} /></div>
       <section className="border-t border-border pt-10">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
           <div><p className="text-xs uppercase tracking-[0.24em] text-accent">Dashboard Phase 07</p><h2 className="mt-3 font-serif text-2xl">Internal Links, Image SEO &amp; Change History</h2><p className="mt-2 max-w-3xl text-sm leading-6 text-muted-foreground">Governance-only views built on the existing content registry, resolver, authorization, image assets, and append-only history. Accepting a review never mutates public content.</p></div>
