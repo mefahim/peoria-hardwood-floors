@@ -6,11 +6,12 @@
 // interactive island inside it.
 
 import Link from "next/link"
-import { Gauge, ImageIcon, Users } from "lucide-react"
+import { Gauge, ImageIcon, SearchCheck, Users } from "lucide-react"
 import { LogoutButton } from "@/app/admin/LogoutButton"
 
 const NAV_ITEMS = [
   { href: "/admin", label: "Dashboard", icon: Gauge },
+  { href: "/admin/seo", label: "SEO Dashboard", icon: SearchCheck },
   { href: "/admin/leads", label: "Leads", icon: Users },
   { href: "/admin/generations", label: "Generations", icon: ImageIcon },
 ] as const
