@@ -12,7 +12,7 @@ The clean Phase 07 baseline was `9a80c84ebc28df98087ababc697247079e2f532b`, with
 
 ## 3. Final implementation commit
 
-The final Phase 08 implementation commit is recorded in the release history after the hardening change is committed. The release also contains this final audit report as a separate documentation commit.
+The final Phase 08 implementation commit is `823c2336b35a227545fbd6672f9b09c82fbeb21b`. The release also contains this final audit report as a separate documentation commit.
 
 ## 4. Architecture audit
 
@@ -160,7 +160,7 @@ The application still has a single authenticated admin session model rather than
 
 ## 27. Rollback procedure
 
-The final code hardening commit is identified in the release history. Revert that commit to remove the Phase 08 code change. The final report and release documentation may be retained or reverted separately. Preserve `data/seo-phase-07-governance.json`, any `data/seo-overrides.json`, `data/seo-local-governance.json`, and `data/seo-change-history.json` when retaining dashboard review history or pending governance records. Do not destructively delete shared change history.
+Revert code commit `823c2336b35a227545fbd6672f9b09c82fbeb21b` to remove the Phase 08 code change. The final report and release documentation may be retained or reverted separately. Preserve `data/seo-phase-07-governance.json`, any `data/seo-overrides.json`, `data/seo-local-governance.json`, and `data/seo-change-history.json` when retaining dashboard review history or pending governance records. Do not destructively delete shared change history.
 
 ## 28. Final status
 
