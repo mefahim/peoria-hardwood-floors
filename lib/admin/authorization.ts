@@ -5,17 +5,17 @@ import { ADMIN_SESSION_COOKIE, isValidSessionCookie } from "@/lib/visualizer/adm
 export const DASHBOARD_ROLES = ["Admin", "SEO Manager", "Content Editor", "Reviewer"] as const
 export type DashboardRole = (typeof DASHBOARD_ROLES)[number]
 
-export const DASHBOARD_ACTIONS = ["view", "update"] as const
+export const DASHBOARD_ACTIONS = ["view", "update", "governance-edit", "review"] as const
 export type DashboardAction = (typeof DASHBOARD_ACTIONS)[number]
 
 export const DASHBOARD_RESOURCES = ["seo-dashboard"] as const
 export type DashboardResource = (typeof DASHBOARD_RESOURCES)[number]
 
 const ROLE_PERMISSIONS: Record<DashboardRole, readonly `${DashboardAction}:${DashboardResource}`[]> = {
-  Admin: ["view:seo-dashboard", "update:seo-dashboard"],
-  "SEO Manager": ["view:seo-dashboard", "update:seo-dashboard"],
-  "Content Editor": ["view:seo-dashboard"],
-  Reviewer: ["view:seo-dashboard"],
+  Admin: ["view:seo-dashboard", "update:seo-dashboard", "governance-edit:seo-dashboard", "review:seo-dashboard"],
+  "SEO Manager": ["view:seo-dashboard", "update:seo-dashboard", "governance-edit:seo-dashboard", "review:seo-dashboard"],
+  "Content Editor": ["view:seo-dashboard", "governance-edit:seo-dashboard"],
+  Reviewer: ["view:seo-dashboard", "review:seo-dashboard"],
 }
 
 export type DashboardPrincipal = {

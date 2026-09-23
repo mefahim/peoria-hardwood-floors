@@ -50,7 +50,7 @@ async function writeOverrides(value: SeoOverridesFile) { await ensureDataDir(); 
 async function readHistory(): Promise<SeoChangeEvent[]> {
   try { const parsed = JSON.parse(await readFile(HISTORY_PATH, "utf8")); return Array.isArray(parsed) ? parsed : [] } catch { return [] }
 }
-async function appendHistory(event: SeoChangeEvent) { await ensureDataDir(); const next = [event, ...(await readHistory())].slice(0, MAX_HISTORY_ENTRIES); await writeFile(HISTORY_PATH, JSON.stringify(next, null, 2), "utf8"); try { await chmod(HISTORY_PATH, 0o600) } catch {} }
+export async function recordSeoChangeEvent(event: SeoChangeEvent) { await ensureDataDir(); const next = [event, ...(await readHistory())].slice(0, MAX_HISTORY_ENTRIES); await writeFile(HISTORY_PATH, JSON.stringify(next, null, 2), "utf8"); try { await chmod(HISTORY_PATH, 0o600) } catch {} }
 
 export function isManagedSeoRoute(route: string): boolean {
   return (PUBLIC_STATIC_ROUTES as readonly string[]).includes(route) || services.some((service) => `/services/${service.slug}` === route)
@@ -87,13 +87,13 @@ export async function saveSeoOverride(route: string, fields: { title?: string; d
   const store = await readOverrides(); const previous = store.overrides[route] ?? null; const now = new Date().toISOString()
   const next: SeoOverride = { ...(fields.title !== undefined ? { title: fields.title } : {}), ...(fields.description !== undefined ? { description: fields.description } : {}), updatedAt: now, updatedBy: actor }
   store.overrides[route] = next; await writeOverrides(store)
-  for (const field of ["title", "description"] as const) if (fields[field] !== undefined && fields[field] !== previous?.[field]) await appendHistory({ id: crypto.randomUUID(), actor, timestamp: now, entity: managedEntityType(route)!, entityId: route, field, previousValue: previous?.[field] ?? null, newValue: fields[field]!, action: "set", source: "seo-dashboard" })
+  for (const field of ["title", "description"] as const) if (fields[field] !== undefined && fields[field] !== previous?.[field]) await recordSeoChangeEvent({ id: crypto.randomUUID(), actor, timestamp: now, entity: managedEntityType(route)!, entityId: route, field, previousValue: previous?.[field] ?? null, newValue: fields[field]!, action: "set", source: "seo-dashboard" })
   return next
 }
 export async function resetSeoOverride(route: string, actor: string): Promise<void> {
   const store = await readOverrides(); const previous = store.overrides[route]; if (!previous) return
   delete store.overrides[route]; const now = new Date().toISOString(); await writeOverrides(store)
-  await appendHistory({ id: crypto.randomUUID(), actor, timestamp: now, entity: managedEntityType(route)!, entityId: route, field: "override", previousValue: JSON.stringify({ title: previous.title ?? null, description: previous.description ?? null }), newValue: null, action: "reset", source: "seo-dashboard" })
+  await recordSeoChangeEvent({ id: crypto.randomUUID(), actor, timestamp: now, entity: managedEntityType(route)!, entityId: route, field: "override", previousValue: JSON.stringify({ title: previous.title ?? null, description: previous.description ?? null }), newValue: null, action: "reset", source: "seo-dashboard" })
 }
 export async function getSeoChangeHistory(): Promise<SeoChangeEvent[]> { return readHistory() }
 
