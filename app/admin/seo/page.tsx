@@ -35,7 +35,7 @@ export default async function SeoDashboardPage() {
         <Badge variant="secondary">{principal.role} access</Badge>
       </div>
       <SeoDashboardClient data={data} />
-      <div id="pages-services"><SeoManagementClient initialEntities={entities} canEdit={principal.role === "Admin" || principal.role === "SEO Manager"} /></div>
+      <SeoManagementClient initialEntities={entities} canEdit={principal.role === "Admin" || principal.role === "SEO Manager"} />
       <div id="topics-content"><SeoGovernanceClient initialSnapshot={governance} role={principal.role ?? "Reviewer"} /></div>
       <div id="content-briefs" className="scroll-mt-24" aria-label="Content briefs are not currently available"><div className="sr-only">Content briefs are not currently available in this dashboard.</div></div>
       <div id="local-seo"><LocalGovernanceClient initialSnapshot={local} role={principal.role ?? "Reviewer"} /></div>
